@@ -27,11 +27,17 @@ const removeShorts = () =>
         const rowSelector = 'ytd-rich-grid-row #contents';
         const itemsPerRowAttribute = 'items-per-row';
 
-        const shorts= document.querySelectorAll(shortsSelector).forEach(a =>
-                                                                                           {
+        let removedCount = 0;
+
+        document.querySelectorAll(shortsSelector).forEach(a =>                                                                              {
             const video = a.closest(videoSelector);
             video.remove();
+            removedCount++;
         });
+
+        if (removedCount > 0){
+            console.log(`Removed ${removedCount} shorts`);
+        }
 
         // Fill in gaps
         const itemsPerRow = +document.querySelector(videoSelector)?.getAttribute(itemsPerRowAttribute);
