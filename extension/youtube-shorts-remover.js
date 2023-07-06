@@ -26,12 +26,15 @@ const removeShorts = () =>
         const shortsSelector = `${videoSelector} a[href^="/shorts"]`;
         const rowSelector = 'ytd-rich-grid-row #contents';
         const itemsPerRowAttribute = 'items-per-row';
+        const sectionSelector = 'ytd-rich-section-renderer'
 
         let removedCount = 0;
 
-        document.querySelectorAll(shortsSelector).forEach(a =>                                                                              {
+        document.querySelectorAll(shortsSelector).forEach(a => {
+            const section = a.closest(sectionSelector);
+            section?.remove();
             const video = a.closest(videoSelector);
-            video.remove();
+            video?.remove();
             removedCount++;
         });
 
