@@ -1,15 +1,16 @@
 {
-    "manifest_version": 3,
-    "name": "Remove YouTube Shorts",
-    "version": "1.0.0",
-    "content_scripts": [
-        {
-            "matches": [
-                "https://www.youtube.com/*"
-            ],
-            "js": [
-                "youtube-shorts-remover.js"
-            ]
-        }
-    ]
+  "manifest_version": 3,
+  "name": "Remove YouTube Shorts",
+  "version": "1.0.0",
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/*"],
+      "js": ["youtube-shorts-remover.js"]
+    }
+  ],
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "youtube-shorts-remover@kylecorry.com"
+    }
+  }
 }
